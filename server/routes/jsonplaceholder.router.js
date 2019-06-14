@@ -6,7 +6,7 @@ router.get ('/', (req,res) =>{
     console.log('in GET request');
     axios(`https://jsonplaceholder.typicode.com/posts`)
     .then ( (result) => {
-        res.sendStatus(200);
+        res.sendStatus(result.data);
     })
     .catch( (error) => {
         console.log('ERROR in GET');
