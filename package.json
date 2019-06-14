@@ -22,7 +22,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "testServer": "jest server/test/*.test.js --forceExit"
+    "testServer": "jest server/test/server.test.js --forceExit"
   },
   "eslintConfig": {
     "extends": "react-app"
