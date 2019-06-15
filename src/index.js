@@ -64,6 +64,18 @@ function * getJSONPLACEHOLDERTodoSaga(action){
     }
 }
 
+// function* updateJSONPLACEHOLDERToDoSaga(action){
+//     console.log('in updateJSONPLACEHOLDERToDoSaga');
+//     try{
+//         yield axios.put(`/api/jsonplaceholder/todos/${action.payload.id}, action.payload`);
+//         yield put({type:'GET_JSONPLACEHOLDER_TODOS'})
+//     }
+//     catch (error) {
+//         console.log("ERROR IN PUT", error);
+//         alert(`Sorry! Unable to update data. Try again later!`);
+//     }
+// }
+
 //reducer set to hold data received from axios get request
 //default set to object unless action.type is met
 const JSONPLACEHOLDERReducer = (state = {}, action) =>{

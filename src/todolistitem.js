@@ -30,9 +30,10 @@ class ToDoListItem extends Component {
             ...this.state,
             checked: !this.state.checked,
             completed:  !this.state.checked
+        }, () => {
+        // this.props.dispatch({type:'UPDATE_JSONPLACEHOLDER_TODOS', payload: this.state});
         })
     }
-
 
   render(){
     console.log('Item is:', this.props.item);
