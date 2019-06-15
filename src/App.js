@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import './App.css';
 import {connect} from 'react-redux';
 import Grid from '@material-ui/core/Grid';
@@ -15,6 +15,7 @@ class App extends Component {
   state={
     selectedNumber: '',
   }
+
 
   //function that handles the change of the textfield-- sets state based on user selected number
   handleChange = (propertyName) => {
@@ -69,17 +70,19 @@ class App extends Component {
           </Grid>
 
           <Grid item>
-            
-            <Card>
-              <CardContent>
-                <Typography variant='h6'>Title</Typography>
-                <Typography variant='h5'>{this.props.reduxState.JSONPLACEHOLDERReducer.title}</Typography>
-                <Divider/>
-                <Typography variant='h6'>Body</Typography>
-                <Typography variant='h5'>{this.props.reduxState.JSONPLACEHOLDERReducer.body}</Typography>
-              </CardContent>
-            </Card>
-
+            {this.props.reduxState.JSONPLACEHOLDERReducer.id ?
+              <Card>
+                <CardContent>
+                  <Typography variant='h6'>Title</Typography>
+                  <Typography variant='h5'>{this.props.reduxState.JSONPLACEHOLDERReducer.title}</Typography>
+                  <Divider/>
+                  <Typography variant='h6'>Body</Typography>
+                  <Typography variant='h5'>{this.props.reduxState.JSONPLACEHOLDERReducer.body}</Typography>
+                </CardContent>
+              </Card>
+              :
+              <Fragment></Fragment>
+            }
           </Grid>
         
 
@@ -98,7 +101,7 @@ class App extends Component {
 
 const styles = theme => ({
   headerTitle:{
-    
+    fontFamily: 'Merriweather', 
   }
 
 });
