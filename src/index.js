@@ -21,11 +21,11 @@ function* watcherSaga() {
 // via req.query on server side
 // on successful try, will set reducer to response (result.data) from server
 function * getJSONPLACEHOLDERSaga(action){
-    console.log('in getJSONPLACEHOLDERSaga');
-    console.log('Payload is', action.payload);
+    // console.log('in getJSONPLACEHOLDERSaga');
+    // console.log('Payload is', action.payload);
     try{
         const response = yield axios.get(`/api/jsonplaceholder?selected_number=${action.payload}`);
-        console.log('Response is', response);
+        // console.log('Response is', response);
         yield put({type: 'SET_JSONPLACEHOLDER', payload: response.data});
     }
     catch (error) {

@@ -20,14 +20,14 @@ class App extends Component {
   //function that handles the change of the textfield-- sets state based on user selected number
   //once state is set to user selected number, dispatches that number to saga to get from api endpoint
   handleChange = (event) => {
-    console.log('in handleChange');
+    // console.log('in handleChange');
     this.setState({selectedNumber: event.currentTarget.value}, () => {
       this.props.dispatch({type:'GET_JSONPLACEHOLDER', payload: this.state.selectedNumber});
     })
   }
 
   render(){
-    console.log('State is:', this.state);
+    // console.log('State is:', this.state);
     const {classes} = this.props;
     return (
       <Grid spacing={10}
