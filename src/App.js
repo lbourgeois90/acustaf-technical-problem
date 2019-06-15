@@ -17,6 +17,12 @@ function App() {
         </Grid>
 
         <Grid item>
+          <TextField
+            helperText='Choose a number between 1-100'
+            margin='normal'
+            type='number'
+            InputProps={{ inputProps: { min: 1, max: 100 } }}
+          />
           
         </Grid>
       
