@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
@@ -6,7 +6,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class ToDoListItem extends Component {
 
@@ -40,7 +40,7 @@ class ToDoListItem extends Component {
 
   render(){
     console.log('Item is:', this.props.item);
-    const {classes} = this.props;
+    // const {classes} = this.props;
     console.log('state is', this.state)
 
     let checkboxToDisplay = null;
