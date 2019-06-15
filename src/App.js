@@ -41,7 +41,8 @@ class App extends Component {
 
 
   render(){
-    console.log('State is:', this.state)
+    console.log('State is:', this.state);
+    const {classes} = this.props;
     return (
       <Grid spacing={10}
         container
@@ -50,7 +51,7 @@ class App extends Component {
         alignItems='center'>
 
           <Grid item align='center'>
-            <Typography variant='h4'>Acustaf Front-End Developer Technical Problem</Typography>
+            <Typography variant='h4' className={classes.headerTitle}>Acustaf Front-End Developer Technical Problem</Typography>
           </Grid>
 
           <Grid item>
@@ -94,6 +95,14 @@ class App extends Component {
     );
   }
 }
+
+const styles = theme => ({
+  headerTitle:{
+    
+  }
+
+});
+
 
 const mapReduxStateToProps = (reduxState) => ({
   reduxState,
