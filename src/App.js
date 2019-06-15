@@ -64,32 +64,35 @@ class App extends Component {
           </Grid>
 
           <Grid item align='center'>
-            <Button onClick={this.handleChange} value={1}>01</Button>
-            <Button onClick={this.handleChange} value={2}>02</Button>
-            <Button onClick={this.handleChange} value={3}>03</Button>
-            <Button onClick={this.handleChange} value={4}>04</Button>
-            <Button onClick={this.handleChange} value={5}>05</Button>
-            <Button onClick={this.handleChange} value={6}>06</Button>
-            <Button onClick={this.handleChange} value={7}>07</Button>
-            <Button onClick={this.handleChange} value={8}>08</Button>
-            <Button onClick={this.handleChange} value={9}>09</Button>
-            <Button onClick={this.handleChange} value={10}>10</Button>
-            <Button onClick={this.handleChange} value={11}>11</Button>
-            <Button onClick={this.handleChange} value={12}>12</Button>
-            <Button onClick={this.handleChange} value={13}>13</Button>
-            <Button onClick={this.handleChange} value={14}>14</Button>
-            <Button onClick={this.handleChange} value={15}>15</Button>
-            <Button onClick={this.handleChange} value={16}>16</Button>
-            <Button onClick={this.handleChange} value={17}>17</Button>
-            <Button onClick={this.handleChange} value={18}>18</Button>
-            <Button onClick={this.handleChange} value={19}>19</Button>
-            <Button onClick={this.handleChange} value={20}>20</Button>
+            <Button onClick={this.handleChange} value={1} className={classes.button}>01</Button>
+            <Button onClick={this.handleChange} value={2} className={classes.button}>02</Button>
+            <Button onClick={this.handleChange} value={3} className={classes.button}>03</Button>
+            <Button onClick={this.handleChange} value={4} className={classes.button}>04</Button>
+            <Button onClick={this.handleChange} value={5} className={classes.button}>05</Button>
+            <Button onClick={this.handleChange} value={6} className={classes.button}>06</Button>
+            <Button onClick={this.handleChange} value={7} className={classes.button}>07</Button>
+            <Button onClick={this.handleChange} value={8} className={classes.button}>08</Button>
+            <Button onClick={this.handleChange} value={9} className={classes.button}>09</Button>
+            <Button onClick={this.handleChange} value={10} className={classes.button}>10</Button>
+            <Button onClick={this.handleChange} value={11} className={classes.button}>11</Button>
+            <Button onClick={this.handleChange} value={12} className={classes.button}>12</Button>
+            <Button onClick={this.handleChange} value={13} className={classes.button}>13</Button>
+            <Button onClick={this.handleChange} value={14} className={classes.button}>14</Button>
+            <Button onClick={this.handleChange} value={15} className={classes.button}>15</Button>
+            <Button onClick={this.handleChange} value={16} className={classes.button}>16</Button>
+            <Button onClick={this.handleChange} value={17} className={classes.button}>17</Button>
+            <Button onClick={this.handleChange} value={18} className={classes.button}>18</Button>
+            <Button onClick={this.handleChange} value={19} className={classes.button}>19</Button>
+            <Button onClick={this.handleChange} value={20} className={classes.button}>20</Button>
           </Grid>
 
           <Grid item>
             {this.props.reduxState.JSONPLACEHOLDERReducer.id ? //conditionally render card based on contents of reducer
               <Card className={classes.card}>
                 <CardContent className={classes.cardContent}>
+                  <Typography variant='h6' className={classes.cardTypographyHeader} align='center'>Number Chosen</Typography>
+                  <Typography variant='h5' className={classes.cardTypography} align='center'>{this.props.reduxState.JSONPLACEHOLDERReducer.id}</Typography>
+                  <Divider/>
                   <Typography variant='h6' className={classes.cardTypographyHeader} align='center'>Title</Typography>
                   <Typography variant='h5' className={classes.cardTypography} align='center'>{this.props.reduxState.JSONPLACEHOLDERReducer.title}</Typography>
                   <Divider/>
@@ -138,13 +141,19 @@ const styles = theme => ({
     color: '#00ABE9',
   },
   cardTypographyHeader:{
-    fontFamily: 'Montserrat', 
+    fontFamily: 'Montserrat',
+    fontWeight: 'bold',
     color: '#F47E4D',
   },
   card:{
     width: '50vw',
     margin: '0 auto',
   },
+  button:{
+    '&:hover' : {
+      backgroundColor: '#95CA4F',
+    }
+  }
 });
 
 
