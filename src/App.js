@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
+import {connect} from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
@@ -11,12 +12,22 @@ class App extends Component {
     selectedNumber: '',
   }
 
+  //function that handles the change of the textfield-- sets state based on user selected number
   handleChange = (propertyName) => {
     return (event) => {
       this.setState({
         ...this.state,
         [propertyName]: event.target.value,
       })
+    }
+  }
+
+  handleSubmit = (event) => {
+    if(this.state.selectedNumber !== ''){
+      this.props.dispatch({type:'GET_JSONPLACEHOLDER'})
+    }
+    else{
+      //todo: insert error validation alert
     }
   }
 
@@ -64,4 +75,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapReduxStateToProps = (reduxState) => ({
+  reduxState,
+});
+
+export default connect( mapReduxStateToProps )(App);
