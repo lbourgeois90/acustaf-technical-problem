@@ -116,8 +116,9 @@ const styles = theme => ({
     width: '100vw'
   },
   button: {
-    display: 'block',
-    margin: '0 auto',
+    '&:hover' : {
+      backgroundColor: '#95CA4F',
+    }
   },
   cardTypography:{
     fontFamily: 'Montserrat',
@@ -132,11 +133,6 @@ const styles = theme => ({
     width: '50vw',
     margin: '0 auto',
   },
-  button:{
-    '&:hover' : {
-      backgroundColor: '#95CA4F',
-    }
-  }
 });
 
 
