@@ -33,6 +33,9 @@ class App extends Component {
     console.log('in handleSubmit');
     if(this.state.selectedNumber !== ''){
       this.props.dispatch({type:'GET_JSONPLACEHOLDER', payload: this.state.selectedNumber});
+      this.setState({
+        selectedNumber: '',
+      })
     }
     else{
       //todo: insert error validation alert
@@ -53,6 +56,7 @@ class App extends Component {
 
           <Grid item align='center'>
             <Typography variant='h4' className={classes.headerTitle}>Acustaf Front-End Developer Technical Problem</Typography>
+            <Divider className={classes.headerDivider}/>
           </Grid>
 
           <Grid item>
@@ -63,8 +67,9 @@ class App extends Component {
               InputProps={{ inputProps: { min: 1, max: 100 } }}
               value={this.state.selectedNumber}
               onChange={this.handleChange('selectedNumber')}
+              className={classes.textField}
             />
-            <Button variant="outlined" onClick={this.handleSubmit}>
+            <Button variant="outlined" onClick={this.handleSubmit} className={classes.button}>
               Submit
             </Button>
           </Grid>
@@ -102,7 +107,15 @@ class App extends Component {
 const styles = theme => ({
   headerTitle:{
     fontFamily: 'Merriweather', 
-  }
+  },
+  headerDivider:{
+    width: '100vw'
+  },
+  button: {
+    display: 'block',
+    margin: '0 auto',
+  },
+
 
 });
 
