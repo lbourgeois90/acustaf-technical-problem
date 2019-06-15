@@ -22,7 +22,7 @@ class App extends Component {
   handleChange = (event) => {
     // console.log('in handleChange');
     this.setState({selectedNumber: event.currentTarget.value}, () => {
-      this.props.dispatch({type:'GET_JSONPLACEHOLDER', payload: this.state.selectedNumber});
+      this.props.dispatch({type:'GET_JSONPLACEHOLDER_PHOTOS', payload: this.state.selectedNumber});
     })
   }
 
@@ -79,8 +79,8 @@ class App extends Component {
                   <Typography variant='h6' className={classes.cardTypographyHeader} align='center'>Title</Typography>
                   <Typography variant='h5' className={classes.cardTypography} align='center'>{this.props.reduxState.JSONPLACEHOLDERReducer.title}</Typography>
                   <Divider/>
-                  <Typography variant='h6' className={classes.cardTypographyHeader} align='center'>Body</Typography>
-                  <Typography variant='h5' className={classes.cardTypography} align='center'>{this.props.reduxState.JSONPLACEHOLDERReducer.body}</Typography>
+                  <Typography variant='h6' className={classes.cardTypographyHeader} align='center'>Photo</Typography>
+                  <Typography variant='h5' className={classes.cardTypography} align='center'><img src={this.props.reduxState.JSONPLACEHOLDERReducer.url} width='50%' height='50%'></img></Typography>
                 </CardContent>
               </Card>
               :
