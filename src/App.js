@@ -5,6 +5,10 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Divider from '@material-ui/core/Divider';
+import { withStyles } from '@material-ui/core/styles';
 
 class App extends Component {
 
@@ -61,7 +65,20 @@ class App extends Component {
             <Button variant="outlined" onClick={this.handleSubmit}>
               Submit
             </Button>
+          </Grid>
+
+          <Grid item>
             
+            <Card>
+              <CardContent>
+                <Typography variant='h6'>Title</Typography>
+                <Typography variant='h5'>{this.props.reduxState.JSONPLACEHOLDERReducer.title}</Typography>
+                <Divider/>
+                <Typography variant='h6'>Body</Typography>
+                <Typography variant='h5'>{this.props.reduxState.JSONPLACEHOLDERReducer.body}</Typography>
+              </CardContent>
+            </Card>
+
           </Grid>
         
 
@@ -82,4 +99,4 @@ const mapReduxStateToProps = (reduxState) => ({
   reduxState,
 });
 
-export default connect( mapReduxStateToProps )(App);
+export default connect( mapReduxStateToProps)(withStyles(styles)(App));
