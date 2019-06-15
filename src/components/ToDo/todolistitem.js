@@ -6,7 +6,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ListItemSecondaryAction } from '@material-ui/core';
+import IconButton from '@material-ui/core/IconButton';
 
 class ToDoListItem extends Component {
 
@@ -71,6 +73,11 @@ class ToDoListItem extends Component {
                 <ListItemIcon>
                     {checkboxToDisplay}
                 </ListItemIcon>
+                <ListItemSecondaryAction>
+                  <IconButton edge='end' aria-label="Delete">
+                    <FontAwesomeIcon icon="trash-alt"/>
+                  </IconButton>
+                </ListItemSecondaryAction>
               </ListItem>
       </Grid>
     );

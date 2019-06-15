@@ -17,8 +17,8 @@ import { withStyles } from '@material-ui/core/styles';
 // import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import { library } from '@fortawesome/fontawesome-svg-core';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckSquare, faSquare} from '@fortawesome/free-solid-svg-icons';
-library.add(faCheckSquare, faSquare);
+import { faCheckSquare, faSquare, faTrashAlt} from '@fortawesome/free-solid-svg-icons';
+library.add(faCheckSquare, faSquare, faTrashAlt);
 
 
 class App extends Component {

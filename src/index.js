@@ -76,6 +76,7 @@ function* updateJSONPLACEHOLDERToDoSaga(action){
                         completed:action.payload.completed}
     try{
         const response = yield axios.put(`https://jsonplaceholder.typicode.com/todos/${action.payload.id}`, updatedItem);
+        //If using database would want to do a GET for most updated information
         // yield put({type:'GET_JSONPLACEHOLDER_TODOS'})
         console.log('Response is', response);
     }
