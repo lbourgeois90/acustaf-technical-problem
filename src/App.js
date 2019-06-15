@@ -18,29 +18,27 @@ class App extends Component {
 
 
   //function that handles the change of the textfield-- sets state based on user selected number
-  handleChange = (propertyName) => {
-    return (event) => {
-      this.setState({
-        ...this.state,
-        [propertyName]: event.target.value,
-      })
-    }
+  handleChange = (event) => {
+    console.log('in handleChange');
+    this.setState({selectedNumber: event.currentTarget.value}, () => {
+      this.props.dispatch({type:'GET_JSONPLACEHOLDER', payload: this.state.selectedNumber});
+    })
   }
 
-  //function that will take user selected number and send to saga to get information from api endpoint
-  //contains validation
-  handleSubmit = (event) => {
-    console.log('in handleSubmit');
-    if(this.state.selectedNumber !== ''){
-      this.props.dispatch({type:'GET_JSONPLACEHOLDER', payload: this.state.selectedNumber});
-      this.setState({
-        selectedNumber: '',
-      })
-    }
-    else{
-      //todo: insert error validation alert
-    }
-  }
+  // function that will take user selected number and send to saga to get information from api endpoint
+  // contains validation
+  // handleSubmit = (event) => {
+  //   console.log('in handleSubmit');
+    // if(this.state.selectedNumber !== ''){
+    //   this.props.dispatch({type:'GET_JSONPLACEHOLDER', payload: this.state.selectedNumber});
+    //   this.setState({
+    //     selectedNumber: '',
+    //   })
+    // }
+    // else{
+    //   //todo: insert error validation alert
+    // }
+  // }
 
 
 
@@ -67,32 +65,32 @@ class App extends Component {
               type='number'
               InputProps={{ inputProps: { min: 1, max: 100 } }}
               value={this.state.selectedNumber}
-              onChange={this.handleChange('selectedNumber')}
+              onChange={this.handleChange}
               className={classes.textField}
             /> */}
           </Grid>
 
           <Grid item>
-            <Button onClick={this.handleChange(1)}>01</Button>
-            <Button onClick={this.handleChange(2)}>02</Button>
-            <Button onClick={this.handleChange(3)}>03</Button>
-            <Button onClick={this.handleChange(4)}>04</Button>
-            <Button onClick={this.handleChange(5)}>05</Button>
-            <Button onClick={this.handleChange(6)}>06</Button>
-            <Button onClick={this.handleChange(7)}>07</Button>
-            <Button onClick={this.handleChange(8)}>08</Button>
-            <Button onClick={this.handleChange(9)}>09</Button>
-            <Button onClick={this.handleChange(10)}>10</Button>
-            <Button onClick={this.handleChange(11)}>11</Button>
-            <Button onClick={this.handleChange(12)}>12</Button>
-            <Button onClick={this.handleChange(13)}>13</Button>
-            <Button onClick={this.handleChange(14)}>14</Button>
-            <Button onClick={this.handleChange(15)}>15</Button>
-            <Button onClick={this.handleChange(16)}>16</Button>
-            <Button onClick={this.handleChange(17)}>17</Button>
-            <Button onClick={this.handleChange(18)}>18</Button>
-            <Button onClick={this.handleChange(19)}>19</Button>
-            <Button onClick={this.handleChange(20)}>20</Button>
+            <Button onClick={this.handleChange} value={1}>01</Button>
+            <Button onClick={this.handleChange} value={2}>02</Button>
+            <Button onClick={this.handleChange} value={3}>03</Button>
+            <Button onClick={this.handleChange} value={4}>04</Button>
+            <Button onClick={this.handleChange} value={5}>05</Button>
+            <Button onClick={this.handleChange} value={6}>06</Button>
+            <Button onClick={this.handleChange} value={7}>07</Button>
+            <Button onClick={this.handleChange} value={8}>08</Button>
+            <Button onClick={this.handleChange} value={9}>09</Button>
+            <Button onClick={this.handleChange} value={10}>10</Button>
+            <Button onClick={this.handleChange} value={11}>11</Button>
+            <Button onClick={this.handleChange} value={12}>12</Button>
+            <Button onClick={this.handleChange} value={13}>13</Button>
+            <Button onClick={this.handleChange} value={14}>14</Button>
+            <Button onClick={this.handleChange} value={15}>15</Button>
+            <Button onClick={this.handleChange} value={16}>16</Button>
+            <Button onClick={this.handleChange} value={17}>17</Button>
+            <Button onClick={this.handleChange} value={18}>18</Button>
+            <Button onClick={this.handleChange} value={19}>19</Button>
+            <Button onClick={this.handleChange} value={20}>20</Button>
           </Grid>
 
           <Grid item>
