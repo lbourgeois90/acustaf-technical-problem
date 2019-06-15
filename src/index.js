@@ -20,7 +20,7 @@ function* watcherSaga() {
 function * getJSONPLACEHOLDERSaga(action){
     console.log('in getJSONPLACEHOLDERSaga');
     try{
-        const response = yield axios.get('/api/jsonplaceholder');
+        const response = yield axios.get(`/api/jsonplaceholder?selected_number=${action.payload}`);
         console.log('Response is', response);
         // yield put({type: 'SET_JSONPLACEHOLDER', payload: response.data});
     }
@@ -45,6 +45,7 @@ const sagaMiddleware = createSagaMiddleware();
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
+        JSONPLACEHOLDERReducer
     }),
     // Add sagaMiddleware to store
     applyMiddleware(sagaMiddleware, logger),

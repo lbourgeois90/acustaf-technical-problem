@@ -22,9 +22,12 @@ class App extends Component {
     }
   }
 
+  //function that will take user selected number and send to saga to get information from api endpoint
+  //contains validation
   handleSubmit = (event) => {
+    console.log('in handleSubmit');
     if(this.state.selectedNumber !== ''){
-      this.props.dispatch({type:'GET_JSONPLACEHOLDER'})
+      this.props.dispatch({type:'GET_JSONPLACEHOLDER'});
     }
     else{
       //todo: insert error validation alert
@@ -36,7 +39,7 @@ class App extends Component {
   render(){
     console.log('State is:', this.state)
     return (
-      <Grid spacing={24}
+      <Grid spacing={10}
         container
         direction='column'
         justify='center'
@@ -55,7 +58,7 @@ class App extends Component {
               value={this.state.selectedNumber}
               onChange={this.handleChange('selectedNumber')}
             />
-            <Button variant="outlined">
+            <Button variant="outlined" onClick={this.handleSubmit}>
               Submit
             </Button>
             
