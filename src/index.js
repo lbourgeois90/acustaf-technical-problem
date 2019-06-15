@@ -14,41 +14,41 @@ import {takeLatest, put} from 'redux-saga/effects';
 
 //watcher saga to take in dispatches
 function* watcherSaga() {
-    yield takeLatest ('GET_JSONPLACEHOLDER_POSTS', getJSONPLACEHOLDERPostSaga);
-    yield takeLatest ('GET_JSONPLACEHOLDER_PHOTOS', getJSONPLACEHOLDERPhotoSaga);
+    // yield takeLatest ('GET_JSONPLACEHOLDER_POSTS', getJSONPLACEHOLDERPostSaga);
+    // yield takeLatest ('GET_JSONPLACEHOLDER_PHOTOS', getJSONPLACEHOLDERPhotoSaga);
     yield takeLatest ('GET_JSONPLACEHOLDER_TODOS', getJSONPLACEHOLDERTodoSaga);
 }
 
 // generator funtion saga- axios get requestion to server- sends user selected number in url to parse
 // via req.query on server side
 // on successful try, will set reducer to response (result.data) from server
-function * getJSONPLACEHOLDERPostSaga(action){
-    // console.log('in getJSONPLACEHOLDERPostSaga');
-    // console.log('Payload is', action.payload);
-    try{
-        const response = yield axios.get(`/api/jsonplaceholder/posts?selected_number=${action.payload}`);
-        // console.log('Response is', response);
-        yield put({type: 'SET_JSONPLACEHOLDER', payload: response.data});
-    }
-    catch (error) {
-        console.log("ERROR IN GET", error);
-        alert(`Sorry! Unable to get data based on selected number. Try again later!`);
-    }
-}
+// function * getJSONPLACEHOLDERPostSaga(action){
+//     // console.log('in getJSONPLACEHOLDERPostSaga');
+//     // console.log('Payload is', action.payload);
+//     try{
+//         const response = yield axios.get(`/api/jsonplaceholder/posts?selected_number=${action.payload}`);
+//         // console.log('Response is', response);
+//         yield put({type: 'SET_JSONPLACEHOLDER', payload: response.data});
+//     }
+//     catch (error) {
+//         console.log("ERROR IN GET", error);
+//         alert(`Sorry! Unable to get data based on selected number. Try again later!`);
+//     }
+// }
 
-function * getJSONPLACEHOLDERPhotoSaga(action){
-    //console.log('in getJSONPLACEHOLDERPhotoSaga');
-    // console.log('Payload is', action.payload);
-    try{
-        const response = yield axios.get(`/api/jsonplaceholder/photos?selected_number=${action.payload}`);
-        // console.log('Response is', response);
-        yield put({type: 'SET_JSONPLACEHOLDER', payload: response.data});
-    }
-    catch (error) {
-        console.log("ERROR IN GET", error);
-        alert(`Sorry! Unable to get data based on selected number. Try again later!`);
-    }
-}
+// function * getJSONPLACEHOLDERPhotoSaga(action){
+//     //console.log('in getJSONPLACEHOLDERPhotoSaga');
+//     // console.log('Payload is', action.payload);
+//     try{
+//         const response = yield axios.get(`/api/jsonplaceholder/photos?selected_number=${action.payload}`);
+//         // console.log('Response is', response);
+//         yield put({type: 'SET_JSONPLACEHOLDER', payload: response.data});
+//     }
+//     catch (error) {
+//         console.log("ERROR IN GET", error);
+//         alert(`Sorry! Unable to get data based on selected number. Try again later!`);
+//     }
+// }
 
 function * getJSONPLACEHOLDERTodoSaga(action){
     //console.log('in getJSONPLACEHOLDERPhotoSaga');
@@ -63,7 +63,7 @@ function * getJSONPLACEHOLDERTodoSaga(action){
         alert(`Sorry! Unable to get data. Try again later!`);
     }
 }
-
+//Generation Function Saga that would bet sent to server to update database
 // function* updateJSONPLACEHOLDERToDoSaga(action){
 //     console.log('in updateJSONPLACEHOLDERToDoSaga');
 //     try{

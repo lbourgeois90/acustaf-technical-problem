@@ -33,12 +33,12 @@ class App extends Component {
 
   //function that handles the change of the textfield-- sets state based on user selected number
   //once state is set to user selected number, dispatches that number to saga to get from api endpoint
-  handleChange = (event) => {
-    // console.log('in handleChange');
-    this.setState({selectedNumber: event.currentTarget.value}, () => {
-      this.props.dispatch({type:'GET_JSONPLACEHOLDER_PHOTOS', payload: this.state.selectedNumber});
-    })
-  }
+  // handleChange = (event) => {
+  //   // console.log('in handleChange');
+  //   this.setState({selectedNumber: event.currentTarget.value}, () => {
+  //     this.props.dispatch({type:'GET_JSONPLACEHOLDER_PHOTOS', payload: this.state.selectedNumber});
+  //   })
+  // }
 
   render(){
     // console.log('State is:', this.state);
@@ -58,9 +58,9 @@ class App extends Component {
             <Divider className={classes.headerDivider}/>
           </Grid>
 
-          {/* <Grid item className={classes.selectionGrid}>
-            <Typography variant='h4' className={classes.headerTitle} align='center'>Please Choose A Number Between 1-20</Typography>
-          </Grid> */}
+          <Grid item className={classes.selectionGrid}>
+            <Typography variant='h4' className={classes.headerTitle} align='center'>JSONPlaceholder To-Do List</Typography>
+          </Grid>
 
           {/* <Grid item align='center'>
             <Button onClick={this.handleChange} value={1} className={classes.button}>01</Button>
@@ -110,23 +110,9 @@ class App extends Component {
             :
             <Fragment></Fragment>
           }
-           {/* <ToDoList/> */}
-
-
-
-
 
           </Grid>
-        
-
-
-
-
-
-
-
-
-
+       
       </Grid>
     );
   }
@@ -145,24 +131,24 @@ const styles = theme => ({
   headerDivider:{
     width: '100vw'
   },
-  button: {
-    '&:hover' : {
-      backgroundColor: '#95CA4F',
-    }
-  },
-  cardTypography:{
-    fontFamily: 'Montserrat',
-    color: '#00ABE9',
-  },
-  cardTypographyHeader:{
-    fontFamily: 'Montserrat',
-    fontWeight: 'bold',
-    color: '#F47E4D',
-  },
-  card:{
-    width: '50vw',
-    margin: '0 auto',
-  },
+  // button: {
+  //   '&:hover' : {
+  //     backgroundColor: '#95CA4F',
+  //   }
+  // },
+  // cardTypography:{
+  //   fontFamily: 'Montserrat',
+  //   color: '#00ABE9',
+  // },
+  // cardTypographyHeader:{
+  //   fontFamily: 'Montserrat',
+  //   fontWeight: 'bold',
+  //   color: '#F47E4D',
+  // },
+  // card:{
+  //   width: '50vw',
+  //   margin: '0 auto',
+  // },
 });
 
 

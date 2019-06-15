@@ -12,9 +12,10 @@ class ToDoListItem extends Component {
 
     state={
         completed: '',
-        checked:false,
+        checked: '',
     }
 
+    // On intiialization of page, will set state to values of incoming props-- this is important if completely update method (would complete if using database)
     componentDidMount(){
         this.setState({
             completed: this.props.item.completed,
@@ -24,6 +25,8 @@ class ToDoListItem extends Component {
         })
     }
 
+    //FUNCTION- handles checkboxes-- checkboxes are loaded onto dom based on completed status--changes state based on check of box
+    //IF was using database, would dispatch PUT method to update data based on user input of checkbox
     handleCheck = (event) => {
         console.log('in handleCheck')
         this.setState({
