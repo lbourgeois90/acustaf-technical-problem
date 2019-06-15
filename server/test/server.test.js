@@ -14,3 +14,10 @@ let testServer = require('supertest')
 //         expect(response.statusCode).toBe(200);
 //       });
 // })
+
+describe('Test API endpoint GET request', () => {
+    test('Should respond with status 200', async () => {
+        const response = await testServer(app).get('/api/jsonplaceholder/todos');
+        expect(response.statusCode).toBe(200);
+      });
+})

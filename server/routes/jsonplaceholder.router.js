@@ -45,8 +45,9 @@ router.get ('/todos', (req,res) =>{
     // console.log('in GET request');
     axios(`https://jsonplaceholder.typicode.com/todos?_limit=50`)
     .then ( (result) => {
-        console.log(result.data);
-        res.send(result.data);
+        // console.log(result.data);
+        // res.send(result.data);
+        res.sendStatus(200);
     })
     .catch( (error) => {
         console.log('ERROR in GET', error);
