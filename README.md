@@ -51,6 +51,7 @@ These instructions will get you a copy of the project up and running on your loc
 ### Next Steps
 - [ ] If was using using database, uncomment out client-side Saga PUT request
 - [ ] Complete server-side PUT request using SQL Query
+- [ ] Update Dom based on GET request to return updated data from database
 
 
 
