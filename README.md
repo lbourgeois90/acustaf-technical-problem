@@ -37,15 +37,13 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Screen Shot
 
-<img src="/public/images/screenshot.png/">
+<img src="/public/images/screen-shot.png/">
 
 ### Completed Features
 
 
 ### Next Steps
 
-
-## Deployed On
 
 
 
