@@ -19,6 +19,7 @@ function* watcherSaga() {
 
 function * getJSONPLACEHOLDERSaga(action){
     console.log('in getJSONPLACEHOLDERSaga');
+    console.log('Payload is', action.payload);
     try{
         const response = yield axios.get(`/api/jsonplaceholder?selected_number=${action.payload}`);
         console.log('Response is', response);

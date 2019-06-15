@@ -27,7 +27,7 @@ class App extends Component {
   handleSubmit = (event) => {
     console.log('in handleSubmit');
     if(this.state.selectedNumber !== ''){
-      this.props.dispatch({type:'GET_JSONPLACEHOLDER'});
+      this.props.dispatch({type:'GET_JSONPLACEHOLDER', payload: this.state.selectedNumber});
     }
     else{
       //todo: insert error validation alert
