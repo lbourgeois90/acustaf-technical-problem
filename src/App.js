@@ -3,7 +3,7 @@ import './App.css';
 import {connect} from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
+// import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -18,6 +18,7 @@ class App extends Component {
 
 
   //function that handles the change of the textfield-- sets state based on user selected number
+  //once state is set to user selected number, dispatches that number to saga to get from api endpoint
   handleChange = (event) => {
     console.log('in handleChange');
     this.setState({selectedNumber: event.currentTarget.value}, () => {
@@ -53,24 +54,16 @@ class App extends Component {
         alignItems='center'>
 
           <Grid item align='center'>
-            <img src='/images/logo.png' align='center' className={classes.headerImage}></img>
+            <img src='/images/logo.png' alt='actustaf logo' align='center' className={classes.headerImage}></img>
             <Typography variant='h4' className={classes.headerTitle}>Front-End Developer Technical Problem</Typography>
             <Divider className={classes.headerDivider}/>
           </Grid>
 
           <Grid item className={classes.selectionGrid}>
             <Typography variant='h4' className={classes.headerTitle} align='center'>Please Choose A Number Between 1-20</Typography>
-            {/* <TextField
-              margin='normal'
-              type='number'
-              InputProps={{ inputProps: { min: 1, max: 100 } }}
-              value={this.state.selectedNumber}
-              onChange={this.handleChange}
-              className={classes.textField}
-            /> */}
           </Grid>
 
-          <Grid item>
+          <Grid item align='center'>
             <Button onClick={this.handleChange} value={1}>01</Button>
             <Button onClick={this.handleChange} value={2}>02</Button>
             <Button onClick={this.handleChange} value={3}>03</Button>
@@ -94,14 +87,14 @@ class App extends Component {
           </Grid>
 
           <Grid item>
-            {this.props.reduxState.JSONPLACEHOLDERReducer.id ?
-              <Card>
+            {this.props.reduxState.JSONPLACEHOLDERReducer.id ? //conditionally render card based on contents of reducer
+              <Card className={classes.card}>
                 <CardContent className={classes.cardContent}>
-                  <Typography variant='h6' className={classes.cardTypographyHeader}>Title</Typography>
-                  <Typography variant='h5' className={classes.cardTypography}>{this.props.reduxState.JSONPLACEHOLDERReducer.title}</Typography>
+                  <Typography variant='h6' className={classes.cardTypographyHeader} align='center'>Title</Typography>
+                  <Typography variant='h5' className={classes.cardTypography} align='center'>{this.props.reduxState.JSONPLACEHOLDERReducer.title}</Typography>
                   <Divider/>
-                  <Typography variant='h6' className={classes.cardTypographyHeader}>Body</Typography>
-                  <Typography variant='h5' className={classes.cardTypography}>{this.props.reduxState.JSONPLACEHOLDERReducer.body}</Typography>
+                  <Typography variant='h6' className={classes.cardTypographyHeader} align='center'>Body</Typography>
+                  <Typography variant='h5' className={classes.cardTypography} align='center'>{this.props.reduxState.JSONPLACEHOLDERReducer.body}</Typography>
                 </CardContent>
               </Card>
               :
@@ -127,11 +120,11 @@ const styles = theme => ({
   headerTitle:{
     fontFamily: 'Montserrat', 
     color: 'black',
-    height: '10vh',
-    lineHeight: '10vh',
+    height: '5vh',
+    lineHeight: '5vh',
   },
   headerImage:{
-    marginTop: 100,
+    marginTop: 25,
   },
   headerDivider:{
     width: '100vw'
@@ -141,13 +134,17 @@ const styles = theme => ({
     margin: '0 auto',
   },
   cardTypography:{
-    fontFamily: 'Montserrat', 
+    fontFamily: 'Montserrat',
+    color: '#00ABE9',
   },
   cardTypographyHeader:{
     fontFamily: 'Montserrat', 
+    color: '#F47E4D',
   },
-
-
+  card:{
+    width: '50vw',
+    margin: '0 auto',
+  },
 });
 
 

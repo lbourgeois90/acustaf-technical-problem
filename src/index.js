@@ -17,6 +17,9 @@ function* watcherSaga() {
     yield takeLatest ('GET_JSONPLACEHOLDER', getJSONPLACEHOLDERSaga)
 }
 
+// generator funtion saga- axios get requestion to server- sends user selected number in url to parse
+// via req.query on server side
+// on successful try, will set reducer to response (result.data) from server
 function * getJSONPLACEHOLDERSaga(action){
     console.log('in getJSONPLACEHOLDERSaga');
     console.log('Payload is', action.payload);
@@ -27,10 +30,12 @@ function * getJSONPLACEHOLDERSaga(action){
     }
     catch (error) {
         console.log("ERROR IN GET", error);
-        //add alert
+        alert(`Sorry! Unable to get data based on selected number. Try again later!`);
     }
 }
 
+//reducer set to hold data received from axios get request
+//default set to object unless action.type is met
 const JSONPLACEHOLDERReducer = (state = {}, action) =>{
     if(action.type === 'SET_JSONPLACEHOLDER') {
         return action.payload

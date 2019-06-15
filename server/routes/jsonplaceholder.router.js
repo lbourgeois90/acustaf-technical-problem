@@ -2,6 +2,10 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 
+
+//GET request to api endpoint with specified id determined by user selected number
+//parse req.query to get user selected number-- set within api endpoint
+//upon successful GET of data, send data back to client side to be stored in reducer-rendered on DOM
 router.get ('/', (req,res) =>{
     console.log('in GET request');
     const selected_number = req.query.selected_number;
