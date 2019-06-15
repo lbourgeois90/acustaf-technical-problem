@@ -1,11 +1,35 @@
 import React from 'react';
 import './App.css';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
 
 function App() {
   return (
-    <div className="App">
+    <Grid spacing={24}
+      container
+      direction='column'
+      justify='center'
+      alignItems='center'>
 
-    </div>
+        <Grid item>
+          <Typography variant='h4'>Acustaf Front-End Developer Technical Problem</Typography>
+        </Grid>
+
+        <Grid item>
+          
+        </Grid>
+      
+
+
+
+
+
+
+
+
+
+    </Grid>
   );
 }
 
