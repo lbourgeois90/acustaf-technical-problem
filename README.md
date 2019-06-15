@@ -40,9 +40,17 @@ These instructions will get you a copy of the project up and running on your loc
 <img src="/public/images/screen-shot1.png/">
 
 ### Completed Features
-
+- [x] Create server-side API endpoint GET request with limit of 50 to https://jsonplaceholder.typicode.com/todos
+- [x] Create client-saga Saga GET request
+- [x] Create Reducer to store data received from GET request
+- [x] Create ToDoList to map through data 
+- [x] Create ToDoListItem to display all items on DOM
+- [x] Toggle between checked and unchecked which changes status of task completion
+- [x] Styling with Material-UI
 
 ### Next Steps
+- [ ] If was using using database, uncomment out client-side Saga PUT request
+- [ ] Complete server-side PUT request using SQL Query
 
 
 
