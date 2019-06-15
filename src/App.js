@@ -11,7 +11,19 @@ class App extends Component {
     selectedNumber: '',
   }
 
+  handleChange = (propertyName) => {
+    return (event) => {
+      this.setState({
+        ...this.state,
+        [propertyName]: event.target.value,
+      })
+    }
+  }
+
+
+
   render(){
+    console.log('State is:', this.state)
     return (
       <Grid spacing={24}
         container
@@ -30,7 +42,7 @@ class App extends Component {
               type='number'
               InputProps={{ inputProps: { min: 1, max: 100 } }}
               value={this.state.selectedNumber}
-              onChange={this.hanldeChange('selectedNumber')}
+              onChange={this.handleChange('selectedNumber')}
             />
             <Button variant="outlined">
               Submit
