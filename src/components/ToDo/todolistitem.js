@@ -30,14 +30,20 @@ class ToDoListItem extends Component {
     //FUNCTION- handles checkboxes-- checkboxes are loaded onto dom based on completed status--changes state based on check of box
     //IF was using database, would dispatch PUT method to update data based on user input of checkbox
     handleCheck = (event) => {
-        console.log('in handleCheck')
-        this.setState({
-            ...this.state,
-            checked: !this.state.checked,
-            completed:  !this.state.checked
-        }, () => {
-        this.props.dispatch({type:'UPDATE_JSONPLACEHOLDER_TODOS', payload: this.state});
-        })
+      console.log('in handleCheck')
+      this.setState({
+          ...this.state,
+          checked: !this.state.checked,
+          completed:  !this.state.checked
+      }, () => {
+      this.props.dispatch({type:'UPDATE_JSONPLACEHOLDER_TODOS', payload: this.state});
+      })
+    }
+
+    handleDelete = (event) => {
+      console.log('in handleDelete');
+      console.log(this.state.id)
+      this.props.dispatch({type:'DELETE_JSONPLACEHOLDER_TODOS', payload: this.state.id})
     }
 
   render(){
@@ -74,7 +80,7 @@ class ToDoListItem extends Component {
                     {checkboxToDisplay}
                 </ListItemIcon>
                 <ListItemSecondaryAction>
-                  <IconButton edge='end' aria-label="Delete">
+                  <IconButton edge='end' aria-label="Delete" onClick={this.handleDelete}>
                     <FontAwesomeIcon icon="trash-alt"/>
                   </IconButton>
                 </ListItemSecondaryAction>

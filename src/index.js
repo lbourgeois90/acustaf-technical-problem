@@ -18,6 +18,7 @@ function* watcherSaga() {
     // yield takeLatest ('GET_JSONPLACEHOLDER_PHOTOS', getJSONPLACEHOLDERPhotoSaga);
     yield takeLatest ('GET_JSONPLACEHOLDER_TODOS', getJSONPLACEHOLDERTodoSaga);
     yield takeLatest ('UPDATE_JSONPLACEHOLDER_TODOS', updateJSONPLACEHOLDERToDoSaga);
+    yield takeLatest ('DELETE_JSONPLACEHOLDER_TODOS', deleteJSONPLACEHOLDERToDoSaga);
 }
 
 // generator funtion saga- axios get requestion to server- sends user selected number in url to parse
@@ -75,7 +76,7 @@ function* updateJSONPLACEHOLDERToDoSaga(action){
                         title: action.payload.title, 
                         completed:action.payload.completed}
     try{
-        const response = yield axios.put(`https://jsonplaceholder.typicode.com/todos/${action.payload.id}`, updatedItem);
+        const response = yield axios.put(`https://jsonplaceholder.typicode.com/todos/${updatedItem.id}`, updatedItem);
         //If using database would want to do a GET for most updated information
         // yield put({type:'GET_JSONPLACEHOLDER_TODOS'})
         console.log('Response is', response);
@@ -83,6 +84,20 @@ function* updateJSONPLACEHOLDERToDoSaga(action){
     catch (error) {
         console.log("ERROR IN PUT", error);
         alert(`Sorry! Unable to update data. Try again later!`);
+    }
+}
+
+function* deleteJSONPLACEHOLDERToDoSaga(action){
+    console.log('in deleteJSONPLACEHOLDERToDoSaga', action.payload);
+    let deletedItem = action.payload;
+    console.log('deletedItem is: ', deletedItem);
+    try{
+        const response = yield axios.delete(`https://jsonplaceholder.typicode.com/todos/${deletedItem}`);
+        console.log('Response is', response);
+    }
+    catch (error) {
+        console.log('ERROR IN DELETE', error);
+        alert(`Sorry! Unable to delete data. Try again later!`)
     }
 }
 
