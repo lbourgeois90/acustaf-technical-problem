@@ -1,8 +1,8 @@
 ## AcuStaf Technical Problem
-Application that allows a user to select a number between 1-20. Selected number will send an API request to https://jsonplaceholder.typicode.com/ and select data whose ID matches the selected number. Selected data object will then be rendered onto the page in a meaningful way.
+Application that sends an API request to https://jsonplaceholder.typicode.com/ to receive To-Do list items. Request is limited to 50 JSON objects. The To-Do list data is rendered in meaningful way for users to see the title of the task and whether that task was completed or not. Completion is displayed using checkboxes; if an item has been completed the checkbox is rendered as checked or if not completed is rendered as an empty checkbox. Users can check the boxes to change the status of the task.
 
 ## Deployed
-https://thawing-hollows-10940.herokuapp.com/
+
 
 ## Built With
 
@@ -37,7 +37,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Screen Shot
 
-<img src="/public/images/screen-shot.png/">
+<img src="/public/images/screen-shot1.png/">
 
 ### Completed Features
 
