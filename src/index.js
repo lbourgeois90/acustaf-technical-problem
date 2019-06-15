@@ -14,8 +14,9 @@ import {takeLatest, put} from 'redux-saga/effects';
 
 //watcher saga to take in dispatches
 function* watcherSaga() {
-    yield takeLatest ('GET_JSONPLACEHOLDER_POSTS', getJSONPLACEHOLDERPostSaga)
-    yield takeLatest ('GET_JSONPLACEHOLDER_PHOTOS', getJSONPLACEHOLDERPhotoSaga)
+    yield takeLatest ('GET_JSONPLACEHOLDER_POSTS', getJSONPLACEHOLDERPostSaga);
+    yield takeLatest ('GET_JSONPLACEHOLDER_PHOTOS', getJSONPLACEHOLDERPhotoSaga);
+    yield takeLatest ('GET_JSONPLACEHOLDER_TODOS', getJSONPLACEHOLDERTodoSaga);
 }
 
 // generator funtion saga- axios get requestion to server- sends user selected number in url to parse
@@ -46,6 +47,20 @@ function * getJSONPLACEHOLDERPhotoSaga(action){
     catch (error) {
         console.log("ERROR IN GET", error);
         alert(`Sorry! Unable to get data based on selected number. Try again later!`);
+    }
+}
+
+function * getJSONPLACEHOLDERTodoSaga(action){
+    //console.log('in getJSONPLACEHOLDERPhotoSaga');
+    // console.log('Payload is', action.payload);
+    try{
+        const response = yield axios.get(`/api/jsonplaceholder/todos`);
+        // console.log('Response is', response);
+        yield put({type: 'SET_JSONPLACEHOLDER', payload: response.data});
+    }
+    catch (error) {
+        console.log("ERROR IN GET", error);
+        alert(`Sorry! Unable to get data. Try again later!`);
     }
 }
 

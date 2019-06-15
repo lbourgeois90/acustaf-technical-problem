@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import './App.css';
 import {connect} from 'react-redux';
+import ToDoList from './todolist'
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 // import TextField from '@material-ui/core/TextField';
@@ -9,6 +10,16 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Divider from '@material-ui/core/Divider';
 import { withStyles } from '@material-ui/core/styles';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckSquare, faSquare} from '@fortawesome/free-solid-svg-icons';
+library.add(faCheckSquare, faSquare);
+
 
 class App extends Component {
 
@@ -16,6 +27,9 @@ class App extends Component {
     selectedNumber: '',
   }
 
+  componentDidMount(){
+    this.props.dispatch({type:'GET_JSONPLACEHOLDER_TODOS'})
+  }
 
   //function that handles the change of the textfield-- sets state based on user selected number
   //once state is set to user selected number, dispatches that number to saga to get from api endpoint
@@ -29,6 +43,8 @@ class App extends Component {
   render(){
     // console.log('State is:', this.state);
     const {classes} = this.props;
+
+
     return (
       <Grid spacing={10}
         container
@@ -42,11 +58,11 @@ class App extends Component {
             <Divider className={classes.headerDivider}/>
           </Grid>
 
-          <Grid item className={classes.selectionGrid}>
+          {/* <Grid item className={classes.selectionGrid}>
             <Typography variant='h4' className={classes.headerTitle} align='center'>Please Choose A Number Between 1-20</Typography>
-          </Grid>
+          </Grid> */}
 
-          <Grid item align='center'>
+          {/* <Grid item align='center'>
             <Button onClick={this.handleChange} value={1} className={classes.button}>01</Button>
             <Button onClick={this.handleChange} value={2} className={classes.button}>02</Button>
             <Button onClick={this.handleChange} value={3} className={classes.button}>03</Button>
@@ -86,6 +102,19 @@ class App extends Component {
               :
               <Fragment></Fragment>
             }
+          </Grid> */}
+
+          <Grid item>
+          {this.props.reduxState.JSONPLACEHOLDERReducer.id ? //conditionally render card based on contents of reducer
+            <ToDoList/>
+            :
+            <Fragment></Fragment>
+          }
+
+
+
+
+
           </Grid>
         
 

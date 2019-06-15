@@ -43,8 +43,7 @@ router.get ('/photos', (req,res) =>{
 //upon successful GET of data, send data back to client side to be stored in reducer-rendered on DOM
 router.get ('/todos', (req,res) =>{
     // console.log('in GET request');
-    const selected_number = req.query.selected_number;
-    axios(`https://jsonplaceholder.typicode.com/todos/${selected_number}`)
+    axios(`https://jsonplaceholder.typicode.com/todos?_limit=50`)
     .then ( (result) => {
         console.log(result.data);
         res.send(result.data);
