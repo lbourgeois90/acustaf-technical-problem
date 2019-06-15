@@ -7,6 +7,10 @@ import Button from '@material-ui/core/Button';
 
 class App extends Component {
 
+  state={
+    selectedNumber: '',
+  }
+
   render(){
     return (
       <Grid spacing={24}
@@ -25,6 +29,8 @@ class App extends Component {
               margin='normal'
               type='number'
               InputProps={{ inputProps: { min: 1, max: 100 } }}
+              value={this.state.selectedNumber}
+              onChange={this.hanldeChange('selectedNumber')}
             />
             <Button variant="outlined">
               Submit
