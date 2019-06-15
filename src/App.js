@@ -12,7 +12,7 @@ function App() {
       justify='center'
       alignItems='center'>
 
-        <Grid item>
+        <Grid item align='center'>
           <Typography variant='h4'>Acustaf Front-End Developer Technical Problem</Typography>
         </Grid>
 
