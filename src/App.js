@@ -26,23 +26,6 @@ class App extends Component {
     })
   }
 
-  // function that will take user selected number and send to saga to get information from api endpoint
-  // contains validation
-  // handleSubmit = (event) => {
-  //   console.log('in handleSubmit');
-    // if(this.state.selectedNumber !== ''){
-    //   this.props.dispatch({type:'GET_JSONPLACEHOLDER', payload: this.state.selectedNumber});
-    //   this.setState({
-    //     selectedNumber: '',
-    //   })
-    // }
-    // else{
-    //   //todo: insert error validation alert
-    // }
-  // }
-
-
-
   render(){
     console.log('State is:', this.state);
     const {classes} = this.props;
