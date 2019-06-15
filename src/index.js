@@ -17,6 +17,7 @@ function* watcherSaga() {
     // yield takeLatest ('GET_JSONPLACEHOLDER_POSTS', getJSONPLACEHOLDERPostSaga);
     // yield takeLatest ('GET_JSONPLACEHOLDER_PHOTOS', getJSONPLACEHOLDERPhotoSaga);
     yield takeLatest ('GET_JSONPLACEHOLDER_TODOS', getJSONPLACEHOLDERTodoSaga);
+    yield takeLatest ('UPDATE_JSONPLACEHOLDER_TODOS', updateJSONPLACEHOLDERToDoSaga);
 }
 
 // generator funtion saga- axios get requestion to server- sends user selected number in url to parse
@@ -66,18 +67,23 @@ function * getJSONPLACEHOLDERTodoSaga(action){
         alert(`Sorry! Unable to get data. Try again later!`);
     }
 }
-//Generation Function Saga that would bet sent to server to update database
-// function* updateJSONPLACEHOLDERToDoSaga(action){
-//     console.log('in updateJSONPLACEHOLDERToDoSaga');
-//     try{
-//         yield axios.put(`/api/jsonplaceholder/todos/${action.payload.id}, action.payload`);
-//         yield put({type:'GET_JSONPLACEHOLDER_TODOS'})
-//     }
-//     catch (error) {
-//         console.log("ERROR IN PUT", error);
-//         alert(`Sorry! Unable to update data. Try again later!`);
-//     }
-// }
+// GeneratorFunction Saga that would bet sent to server to update database
+function* updateJSONPLACEHOLDERToDoSaga(action){
+    console.log('in updateJSONPLACEHOLDERToDoSaga', action.payload);
+    let updatedItem = {userId: action.payload.userId, 
+                        id: action.payload.id, 
+                        title: action.payload.title, 
+                        completed:action.payload.completed}
+    try{
+        const response = yield axios.put(`https://jsonplaceholder.typicode.com/todos/${action.payload.id}`, updatedItem);
+        // yield put({type:'GET_JSONPLACEHOLDER_TODOS'})
+        console.log('Response is', response);
+    }
+    catch (error) {
+        console.log("ERROR IN PUT", error);
+        alert(`Sorry! Unable to update data. Try again later!`);
+    }
+}
 
 //reducer set to hold data received from axios get request
 //default set to object unless action.type is met
