@@ -41,18 +41,18 @@ const axios = require('axios');
 //GET request to api endpoint with specified id determined by user selected number
 //parse req.query to get user selected number-- set within api endpoint
 //upon successful GET of data, send data back to client side to be stored in reducer-rendered on DOM
-router.get ('/todos', (req,res) =>{
-    // console.log('in GET request');
-    axios(`https://jsonplaceholder.typicode.com/todos?_limit=50`)
-    .then ( (result) => {
-        console.log(result.data);
-        res.send(result.data);
-    })
-    .catch( (error) => {
-        console.log('ERROR in GET', error);
-        res.sendStatus(500);
-    })
-})
+// router.get ('/todos', (req,res) =>{
+//     // console.log('in GET request');
+//     axios(`https://jsonplaceholder.typicode.com/todos?_limit=50`)
+//     .then ( (result) => {
+//         console.log(result.data);
+//         res.send(result.data);
+//     })
+//     .catch( (error) => {
+//         console.log('ERROR in GET', error);
+//         res.sendStatus(500);
+//     })
+// })
 
 
 

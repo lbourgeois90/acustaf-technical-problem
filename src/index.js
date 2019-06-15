@@ -54,7 +54,10 @@ function * getJSONPLACEHOLDERTodoSaga(action){
     //console.log('in getJSONPLACEHOLDERPhotoSaga');
     // console.log('Payload is', action.payload);
     try{
-        const response = yield axios.get(`/api/jsonplaceholder/todos`);
+        //change axios.get route to be done on client side (can be change to user server-side router but 
+        //shows that api request can be done on client side through saga to same api endpoint)
+        const response = yield  axios.get(`https://jsonplaceholder.typicode.com/todos?_limit=50`)
+        // const response = yield axios.get(`/api/jsonplaceholder/todos`);
         // console.log('Response is', response);
         yield put({type: 'SET_JSONPLACEHOLDER', payload: response.data});
     }

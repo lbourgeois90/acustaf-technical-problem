@@ -64,9 +64,9 @@ class ToDoListItem extends Component {
     return (
       <Grid item>
              <ListItem>
-                <ListItemIcon>
+                <ListItemText>
                   {this.props.item.id}
-                </ListItemIcon>
+                </ListItemText>
                 <ListItemText primary={this.props.item.title}/>
                 <ListItemIcon>
                     {checkboxToDisplay}
