@@ -105,11 +105,12 @@ class App extends Component {
           </Grid> */}
 
           <Grid item>
-          {this.props.reduxState.JSONPLACEHOLDERReducer.id ? //conditionally render card based on contents of reducer
+          {this.props.reduxState.JSONPLACEHOLDERReducer[0] ? //conditionally render card based on contents of reducer
             <ToDoList/>
             :
             <Fragment></Fragment>
           }
+           {/* <ToDoList/> */}
 
 
 

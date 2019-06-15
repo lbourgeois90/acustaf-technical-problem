@@ -21,8 +21,9 @@ class ToDoList extends Component {
     return (
       <Grid item>
             <List>
-                {this.props.reduxState.JSONPLACEHOLDERReducer.map(item =>
-                    <ToDoListItem key={item.id}/>
+                
+                {this.props.reduxState.JSONPLACEHOLDERReducer.map( (item) =>
+                    <ToDoListItem key={item.id} item={item}/> 
                 )}
             </List>
     

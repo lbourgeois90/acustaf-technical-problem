@@ -7,7 +7,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class ToDoListItem extends Component {
 
@@ -17,19 +17,25 @@ class ToDoListItem extends Component {
     // console.log('State is:', this.state);
     const {classes} = this.props;
 
+    let iconToDisplay = null;
+    if(this.props.item.completed === true){
+        iconToDisplay = <FontAwesomeIcon icon="check-square"/>
+    }
+    else if (this.props.item.completed === false){
+        iconToDisplay = <FontAwesomeIcon icon="square"/>
+    }
 
     return (
       <Grid item>
              <ListItem>
                 <ListItemIcon>
-                  {this.props.reduxState.JSONPLACEHOLDERReducer.id}
+                  {this.props.item.id}
                 </ListItemIcon>
-                <ListItemText primary={this.props.reduxState.JSONPLACEHOLDERReducer.title}/>
+                <ListItemText primary={this.props.item.title}/>
                 <ListItemIcon>
-                  {listItemIcon}
+                    {iconToDisplay}
                 </ListItemIcon>
               </ListItem>
-    
       </Grid>
     );
   }
