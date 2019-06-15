@@ -23,7 +23,7 @@ function * getJSONPLACEHOLDERSaga(action){
     try{
         const response = yield axios.get(`/api/jsonplaceholder?selected_number=${action.payload}`);
         console.log('Response is', response);
-        // yield put({type: 'SET_JSONPLACEHOLDER', payload: response.data});
+        yield put({type: 'SET_JSONPLACEHOLDER', payload: response.data});
     }
     catch (error) {
         console.log("ERROR IN GET", error);
