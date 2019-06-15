@@ -14,6 +14,27 @@ import {takeLatest, put} from 'redux-saga/effects';
 
 //watcher saga to take in dispatches
 function* watcherSaga() {
+    yield takeLatest ('GET_JSONPLACEHOLDER', getJSONPLACEHOLDERSaga)
+}
+
+function * getJSONPLACEHOLDERSaga(action){
+    console.log('in getJSONPLACEHOLDERSaga');
+    try{
+        const response = yield axios.get('/api/jsonplaceholder');
+        console.log('Response is', response);
+        // yield put({type: 'SET_JSONPLACEHOLDER', payload: response.data});
+    }
+    catch (error) {
+        console.log("ERROR IN GET", error);
+        //add alert
+    }
+}
+
+const JSONPLACEHOLDERReducer = (state = {}, action) =>{
+    if(action.type === 'SET_JSONPLACEHOLDER') {
+        return action.payload
+    }
+    return state;
 }
 
 
