@@ -1,8 +1,8 @@
 ## AcuStaf Technical Problem
-Application that allows a user to select a number between 1-20. Selected number will send an API request to https://jsonplaceholder.typicode.com/ and select data whose ID matches the selected number. Selected data object will then be rendered onto the page in a meaningful way.
+Application that sends an API request to https://jsonplaceholder.typicode.com/ to receive To-Do list items. Request is limited to 50 JSON objects. The To-Do list data is rendered in meaningful way for users to see the title of the task and whether that task was completed or not. Completion is displayed using checkboxes; if an item has been completed the checkbox is rendered as checked or if not completed is rendered as an empty checkbox. Users can check the boxes to change the status of the task.
 
 ## Deployed
-https://thawing-hollows-10940.herokuapp.com/
+
 
 ## Built With
 
@@ -37,12 +37,21 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Screen Shot
 
-<img src="/public/images/screen-shot.png/">
+<img src="/public/images/screen-shot1.png/">
 
 ### Completed Features
-
+- [x] Create server-side API endpoint GET request with limit of 50 to https://jsonplaceholder.typicode.com/todos
+- [x] Create client-saga Saga GET request
+- [x] Create Reducer to store data received from GET request
+- [x] Create ToDoList to map through data 
+- [x] Create ToDoListItem to display all items on DOM
+- [x] Toggle between checked and unchecked which changes status of task completion
+- [x] Styling with Material-UI
 
 ### Next Steps
+- [ ] If was using using database, uncomment out client-side Saga PUT request
+- [ ] Complete server-side PUT request using SQL Query
+- [ ] Update Dom based on GET request to return updated data from database
 
 
 
