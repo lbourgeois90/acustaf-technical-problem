@@ -19,6 +19,7 @@ function* watcherSaga() {
     yield takeLatest ('GET_JSONPLACEHOLDER_TODOS', getJSONPLACEHOLDERTodoSaga);
     yield takeLatest ('UPDATE_JSONPLACEHOLDER_TODOS', updateJSONPLACEHOLDERToDoSaga);
     yield takeLatest ('DELETE_JSONPLACEHOLDER_TODOS', deleteJSONPLACEHOLDERToDoSaga);
+    yield takeLatest ('POST_JSONPLACEHOLDER_TODOS', postJSONPLACEHOLDERToDoSaga);
 }
 
 // generator funtion saga- axios get requestion to server- sends user selected number in url to parse
@@ -79,11 +80,11 @@ function* updateJSONPLACEHOLDERToDoSaga(action){
         const response = yield axios.put(`https://jsonplaceholder.typicode.com/todos/${updatedItem.id}`, updatedItem);
         //If using database would want to do a GET for most updated information
         // yield put({type:'GET_JSONPLACEHOLDER_TODOS'})
-        console.log('Response is', response);
+        console.log('PUT Response is', response);
     }
     catch (error) {
         console.log("ERROR IN PUT", error);
-        alert(`Sorry! Unable to update data. Try again later!`);
+        alert(`Sorry! Unable to update task. Try again later!`);
     }
 }
 
@@ -93,13 +94,30 @@ function* deleteJSONPLACEHOLDERToDoSaga(action){
     console.log('deletedItem is: ', deletedItem);
     try{
         const response = yield axios.delete(`https://jsonplaceholder.typicode.com/todos/${deletedItem}`);
-        console.log('Response is', response);
+        console.log('DELETE Response is', response);
         //If using database would want to do a GET for most updated information
         // yield put({type:'GET_JSONPLACEHOLDER_TODOS'})
     }
     catch (error) {
         console.log('ERROR IN DELETE', error);
-        alert(`Sorry! Unable to delete data. Try again later!`)
+        alert(`Sorry! Unable to delete task. Try again later!`)
+    }
+}
+
+function* postJSONPLACEHOLDERToDoSaga(action){
+    console.log('in postJSONPLACEHOLDERToDoSaga');
+    let postedItem =  {
+                    "userId": 1,
+                    "title": action.payload,
+                    "completed": false
+                    }
+    try{
+        const response = yield axios.post(`https://jsonplaceholder.typicode.com/todos`, postedItem);
+        console.log('POST Response is:', response);
+    }
+    catch (error) {
+        console.log('ERROR in PUT', error);
+        alert(`Sorry! Was unable to add task. Try again later!`)
     }
 }
 
