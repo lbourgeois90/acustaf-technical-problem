@@ -15,6 +15,7 @@ import { withStyles } from '@material-ui/core/styles';
 // import ListItemIcon from '@material-ui/core/ListItemIcon';
 // import ListItemText from '@material-ui/core/ListItemText';
 // import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import swal from 'sweetalert';
 import { library } from '@fortawesome/fontawesome-svg-core';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckSquare, faSquare, faTrashAlt} from '@fortawesome/free-solid-svg-icons';
@@ -51,8 +52,20 @@ class App extends Component {
   }
 
   handleSubmit = (event) => {
-    this.props.dispatch({type: 'POST_JSONPLACEHOLDER_TODOS', payload: this.state.newTask})
-    this.clearInputs()
+    if(this.state.newTask !== ''){
+      this.props.dispatch({type: 'POST_JSONPLACEHOLDER_TODOS', payload: this.state.newTask})
+      this.clearInputs()
+      swal({
+        title: "Task Has Been Created!",
+        icon: "success",
+      })
+    }
+    else{
+      swal({
+        title: "Please enter a task before submission!",
+        icon: "warning",
+      })
+    }
   }
 
   clearInputs = () => {
