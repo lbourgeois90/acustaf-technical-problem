@@ -53,6 +53,7 @@ function* watcherSaga() {
 //     }
 // }
 
+// GeneratorFunction Saga- GET method to api endpoint to GET data-limited to first 50 JSON objects
 function * getJSONPLACEHOLDERTodoSaga(action){
     //console.log('in getJSONPLACEHOLDERPhotoSaga');
     // console.log('Payload is', action.payload);
@@ -69,9 +70,10 @@ function * getJSONPLACEHOLDERTodoSaga(action){
         alert(`Sorry! Unable to get data. Try again later!`);
     }
 }
-// GeneratorFunction Saga that would bet sent to server to update database
+
+// GeneratorFunction Saga- PUT method to api endpoint to update task item completion
 function* updateJSONPLACEHOLDERToDoSaga(action){
-    console.log('in updateJSONPLACEHOLDERToDoSaga', action.payload);
+    // console.log('in updateJSONPLACEHOLDERToDoSaga', action.payload);
     let updatedItem = {userId: action.payload.userId, 
                         id: action.payload.id, 
                         title: action.payload.title, 
@@ -88,10 +90,11 @@ function* updateJSONPLACEHOLDERToDoSaga(action){
     }
 }
 
+// GeneratorFunction Saga- DELETE method to api endpoint to delete task item based on item id
 function* deleteJSONPLACEHOLDERToDoSaga(action){
-    console.log('in deleteJSONPLACEHOLDERToDoSaga', action.payload);
+    // console.log('in deleteJSONPLACEHOLDERToDoSaga', action.payload);
     let deletedItem = action.payload;
-    console.log('deletedItem is: ', deletedItem);
+    // console.log('deletedItem is: ', deletedItem);
     try{
         const response = yield axios.delete(`https://jsonplaceholder.typicode.com/todos/${deletedItem}`);
         console.log('DELETE Response is', response);
@@ -104,8 +107,10 @@ function* deleteJSONPLACEHOLDERToDoSaga(action){
     }
 }
 
+// GeneratorFunction Saga- POST method to api endpoint to create task item based on user inputted task- set automatically to not completed and to userId=1
+// this could be changed if authentication was available
 function* postJSONPLACEHOLDERToDoSaga(action){
-    console.log('in postJSONPLACEHOLDERToDoSaga');
+    // console.log('in postJSONPLACEHOLDERToDoSaga');
     let postedItem =  {
                     "userId": 1,
                     "title": action.payload,

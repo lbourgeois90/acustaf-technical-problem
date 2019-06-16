@@ -42,6 +42,7 @@ class App extends Component {
   //   })
   // }
 
+    //function that handles the change of the textfield-- sets state based on user inputed task
   handleNewTask = (propertyName) => {
     return (event) => {
       this.setState({
@@ -51,6 +52,10 @@ class App extends Component {
     }
   }
 
+  //function that upon click of submit button dispatches newTask to saga to post to API endpoint
+  //once submitted, clears input fields and alerts user to succesful post
+  //contains validation-- does not allow user to submit (dispatch) unless textfield's value is not '' (user has typed in textfield and setState)
+  //if user tries to submit with state = '', user will be alerted to enter information before submission
   handleSubmit = (event) => {
     if(this.state.newTask !== ''){
       this.props.dispatch({type: 'POST_JSONPLACEHOLDER_TODOS', payload: this.state.newTask})
@@ -68,6 +73,7 @@ class App extends Component {
     }
   }
 
+  //function to clear textfield
   clearInputs = () => {
     this.setState({
       newTask: '',

@@ -33,7 +33,7 @@ class ToDoListItem extends Component {
     //FUNCTION- handles checkboxes-- checkboxes are loaded onto dom based on completed status--changes state based on check of box
     //IF was using database, would dispatch PUT method to update data based on user input of checkbox
     handleCheck = (event) => {
-      console.log('in handleCheck')
+      // console.log('in handleCheck')
       this.setState({
           ...this.state,
           checked: !this.state.checked,
@@ -44,8 +44,8 @@ class ToDoListItem extends Component {
     }
 
     handleDelete = (event) => {
-      console.log('in handleDelete');
-      console.log(this.state.id)
+      // console.log('in handleDelete');
+      // console.log(this.state.id)
       swal({
         title: "Are you sure you want to delete this task?",
         icon: "warning",
@@ -65,9 +65,9 @@ class ToDoListItem extends Component {
     }
 
   render(){
-    console.log('Item is:', this.props.item);
+    // console.log('Item is:', this.props.item);
     // const {classes} = this.props;
-    console.log('state is', this.state)
+    // console.log('state is', this.state)
 
     let checkboxToDisplay = null;
     if(this.props.item.completed === true){
