@@ -11,12 +11,12 @@ class ToDoList extends Component {
 
   render(){
     // console.log('State is:', this.state);
-    // const {classes} = this.props;
+    const {classes} = this.props;
 
 
     return (
-      <Grid item>
-            <List>
+      <Grid item className={classes.gridItemList}>
+            <List className={classes.list}>
                 
                 {this.props.reduxState.JSONPLACEHOLDERReducer.map( (item) =>
                     <ToDoListItem key={item.id} item={item}/> 
@@ -29,7 +29,14 @@ class ToDoList extends Component {
 }
 
 const styles = theme => ({
-
+  list:{
+    width: '75vw',
+    minWidth: 400,
+    margin: '0 auto',
+  },
+  gridItemList:{
+    width: '100vw',
+  }
 });
 
 

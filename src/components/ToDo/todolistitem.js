@@ -5,7 +5,9 @@ import { withStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Checkbox from '@material-ui/core/Checkbox';
+import Typography from '@material-ui/core/Typography';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ListItemSecondaryAction } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
@@ -15,7 +17,7 @@ class ToDoListItem extends Component {
 
     state={
         completed: '',
-        checked: '',
+        checked: false,
     }
 
     // On intiialization of page, will set state to values of incoming props-- this is important if completely update method (would complete if using database)
@@ -88,10 +90,10 @@ class ToDoListItem extends Component {
     return (
       <Grid item>
              <ListItem>
-                <ListItemText>
-                  {this.props.item.id}
-                </ListItemText>
-                <ListItemText primary={this.props.item.title}/>
+                <ListItemAvatar>
+                  <Typography>{this.props.item.id}</Typography>
+                </ListItemAvatar>
+                <ListItemText primary={this.props.item.title} align='center'/>
                 <ListItemIcon>
                     {checkboxToDisplay}
                 </ListItemIcon>

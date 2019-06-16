@@ -8,7 +8,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 // import Card from '@material-ui/core/Card';
 // import CardContent from '@material-ui/core/CardContent';
-import Divider from '@material-ui/core/Divider';
+// import Divider from '@material-ui/core/Divider';
 import { withStyles } from '@material-ui/core/styles';
 // import List from '@material-ui/core/List';
 // import ListItem from '@material-ui/core/ListItem';
@@ -83,16 +83,15 @@ class App extends Component {
 
 
     return (
-      <Grid spacing={10}
+      <Grid spacing={8}
         container
         direction='column'
         justify='center'
         alignItems='center'>
 
-          <Grid item align='center'>
+          <Grid item align='center' className={classes.headerGridItem}>
             <img src='/images/logo.png' alt='actustaf logo' align='center' className={classes.headerImage}></img>
             <Typography variant='h4' className={classes.headerTitle}>Front-End Developer Technical Problem</Typography>
-            <Divider className={classes.headerDivider}/>
           </Grid>
 
           <Grid item className={classes.selectionGrid}>
@@ -150,10 +149,23 @@ class App extends Component {
               onChange={this.handleNewTask('newTask')}
               margin='normal'
               variant='outlined'
-              style={{width:'50vw'}}
+              style={{width:'50vw', minWidth: 400}}
+              InputProps={{
+                classes: {
+                  root: classes.cssOutlinedInput,
+                  focused: classes.cssFocused,
+                  notchedOutline: classes.notchedOutline,
+                },
+              }}
             />
 
-            <Button onClick={this.handleSubmit} variant='outlined' className={classes.button}>Submit Task</Button>
+            <Button 
+              onClick={this.handleSubmit} 
+              variant='outlined' 
+              className={classes.button} 
+              style={{borderColor: '#05AAE7'}}>
+                Submit Task
+            </Button>
 
 
 
@@ -182,19 +194,36 @@ const styles = theme => ({
     height: '5vh',
     lineHeight: '5vh',
   },
+  headerGridItem:{
+    borderBottom: '2px solid rgb(173, 171, 170, 0.8)',
+    width: '100vw',
+  },
   headerImage:{
     marginTop: 25,
   },
-  headerDivider:{
-    width: '100vw'
-  },
   button: {
     '&:hover' : {
-      backgroundColor: '#95CA4F',
+      backgroundColor: 'rgb(173, 171, 170, 0.4)',
     },
     display: 'block',
     margin: '0 auto',
+    marginTop: 15,
   },
+  cssOutlinedInput: {
+    "&:not(hover):not($disabled):not($cssFocused):not($error) $notchedOutline": {
+      borderColor: '#05AAE7'
+    },
+    "&:hover:not($disabled):not($cssFocused):not($error) $notchedOutline": {
+      borderColor: "rgb(173, 171, 170, 0.4)" //hovered
+    },
+    "&$cssFocused $notchedOutline": {
+      borderColor: "#05AAE7" //focused
+    }
+  },
+  notchedOutline: {},
+  cssFocused: {},
+  error: {},
+  disabled: {},
   // cardTypography:{
   //   fontFamily: 'Montserrat',
   //   color: '#00ABE9',
