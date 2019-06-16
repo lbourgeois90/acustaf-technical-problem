@@ -9,6 +9,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ListItemSecondaryAction } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
+import swal from 'sweetalert';
 
 class ToDoListItem extends Component {
 
@@ -43,7 +44,22 @@ class ToDoListItem extends Component {
     handleDelete = (event) => {
       console.log('in handleDelete');
       console.log(this.state.id)
-      this.props.dispatch({type:'DELETE_JSONPLACEHOLDER_TODOS', payload: this.state.id})
+      swal({
+        title: "Are you sure you want to delete this task?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          this.props.dispatch({type:'DELETE_JSONPLACEHOLDER_TODOS', payload: this.state.id})
+          swal("Task has been deleted", {
+            icon: "success",
+          });
+        } else {
+          swal("Task was not deleted!");
+        }
+      });
     }
 
   render(){
