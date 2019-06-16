@@ -94,6 +94,8 @@ function* deleteJSONPLACEHOLDERToDoSaga(action){
     try{
         const response = yield axios.delete(`https://jsonplaceholder.typicode.com/todos/${deletedItem}`);
         console.log('Response is', response);
+        //If using database would want to do a GET for most updated information
+        // yield put({type:'GET_JSONPLACEHOLDER_TODOS'})
     }
     catch (error) {
         console.log('ERROR IN DELETE', error);

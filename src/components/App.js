@@ -4,8 +4,8 @@ import {connect} from 'react-redux';
 import ToDoList from './ToDo/todolist';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-// import TextField from '@material-ui/core/TextField';
-// import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 // import Card from '@material-ui/core/Card';
 // import CardContent from '@material-ui/core/CardContent';
 import Divider from '@material-ui/core/Divider';
@@ -24,7 +24,8 @@ library.add(faCheckSquare, faSquare, faTrashAlt);
 class App extends Component {
 
   state={
-    selectedNumber: '',
+    // selectedNumber: '',
+    newTask: '',
   }
 
   componentDidMount(){
@@ -39,6 +40,29 @@ class App extends Component {
   //     this.props.dispatch({type:'GET_JSONPLACEHOLDER_PHOTOS', payload: this.state.selectedNumber});
   //   })
   // }
+
+  handleNewTask = (propertyName) => {
+    return (event) => {
+      this.setState({
+        ...this.state,
+        [propertyName]: event.target.value,
+      })
+    }
+  }
+
+  handleSubmit = (event) => {
+    this.props.dispatch({type: 'POST_JSONPLACEHOLDER_TODOS', payload: this.state.newTask})
+    this.clearInputs()
+  }
+
+  clearInputs = () => {
+    this.setState({
+      newTask: '',
+    })
+  }
+
+  
+
 
   render(){
     // console.log('State is:', this.state);
@@ -105,6 +129,26 @@ class App extends Component {
           </Grid> */}
 
           <Grid item>
+
+            <Typography variant='h6' className={classes.headerTitle} align='center'>Create A New Task</Typography>
+
+            <TextField
+              value={this.state.newTask}
+              onChange={this.handleNewTask('newTask')}
+              margin='normal'
+              variant='outlined'
+              style={{width:'50vw'}}
+            />
+
+            <Button onClick={this.handleSubmit} variant='outlined' className={classes.button}>Submit Task</Button>
+
+
+
+
+
+          </Grid>
+
+          <Grid item>
           {this.props.reduxState.JSONPLACEHOLDERReducer[0] ? //conditionally render card based on contents of reducer
             <ToDoList/>
             :
@@ -131,11 +175,13 @@ const styles = theme => ({
   headerDivider:{
     width: '100vw'
   },
-  // button: {
-  //   '&:hover' : {
-  //     backgroundColor: '#95CA4F',
-  //   }
-  // },
+  button: {
+    '&:hover' : {
+      backgroundColor: '#95CA4F',
+    },
+    display: 'block',
+    margin: '0 auto',
+  },
   // cardTypography:{
   //   fontFamily: 'Montserrat',
   //   color: '#00ABE9',
