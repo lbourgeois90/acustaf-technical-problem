@@ -39,7 +39,7 @@ These instructions will get you a copy of the project up and running on your loc
 6. In terminal, create development server by typing `npm run client` and `npm run server` (this will run application locally)
 
 ## Screen Shot
-
+<img src="/public/images/screen-shot1.png/">
 
 
 ### Completed Features
