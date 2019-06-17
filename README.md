@@ -1,5 +1,7 @@
 ## AcuStaf Technical Problem
-Application that sends an API request to https://jsonplaceholder.typicode.com/ to receive To-Do list items. Request is limited to 50 JSON objects. The To-Do list data is rendered in meaningful way for users to see the title of the task and whether that task was completed or not. Completion is displayed using checkboxes; if an item has been completed the checkbox is rendered as checked or if not completed is rendered as an empty checkbox. Users can check the boxes to change the status of the task.
+Application that sends an API request to https://jsonplaceholder.typicode.com/ to receive To-Do list items. Request is limited to 50 JSON objects. The To-Do list data is rendered in meaningful way for users to see the title of the task and whether that task was completed or not. Completion is displayed using checkboxes; if an item has been completed the checkbox is rendered as checked or if not completed is rendered as an empty checkbox. Users can check the boxes to change the status of the task to completed or not completed.
+
+User has the ability to create a task and add it to the list. User also has the ability to delete a task.
 
 ## Deployed
 Deployment would be done via Heroku
@@ -53,7 +55,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Next Steps
 - [ ] Move API endpoint data to database to complete functionality of POST, PUT and DELETE methods
-
+- [ ] Functionality to edit task 
 
 
 
