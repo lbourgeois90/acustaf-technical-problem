@@ -63,6 +63,7 @@ const styles = theme => ({
   },
   gridItemList:{
     width: '100vw',
+    marginLeft: 30,
   }
 });
 

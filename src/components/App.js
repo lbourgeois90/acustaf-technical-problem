@@ -93,7 +93,8 @@ class App extends Component {
         container
         direction='column'
         justify='center'
-        alignItems='center'>
+        alignItems='center'
+        padding='dense'>
 
           <Grid item align='center' className={classes.headerGridItem}>
             <img src='/images/logo.png' alt='actustaf logo' align='center' className={classes.headerImage}></img>
