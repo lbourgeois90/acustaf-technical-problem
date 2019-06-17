@@ -94,7 +94,7 @@ class ToDoListItem extends Component {
                   <Typography>{this.props.item.id}</Typography>
                 </ListItemAvatar>
                 <ListItemText primary={this.props.item.title} align='center'/>
-                <ListItemIcon>
+                <ListItemIcon style={{marginRight: 15}} align='left'>
                     {checkboxToDisplay}
                 </ListItemIcon>
                 <ListItemSecondaryAction>
