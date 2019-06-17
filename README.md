@@ -40,7 +40,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Screen Shot
 
-<img src="/public/images/screen-shot1.png/">
+
 
 ### Completed Features
 - [x] Create client-side API endpoint GET request with limit of 50 to https://jsonplaceholder.typicode.com/todos
